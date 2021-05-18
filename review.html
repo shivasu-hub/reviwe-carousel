@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REview carousel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  
+<style>
+    .fa{
+        color: yellow;
+    }
+    center{
+        margin-left: 300px;
+        margin-top: 200px;
+        width: 950px;
+        height: 250px;
+        border: 2px solid black;
+        
+    }
+    .divs{
+        display: none;
+    }
+.active{
+    display: block;
+}
+ .indicators{
+     width: 15px;
+     height: 15px;
+     background-color:grey ;
+     border-radius: 50%;
+     margin: 5px;
+     display: inline-block;
+     align-items: center;
+     position: sticky;
+ }
+.indicators:hover{
+    opacity: 1;
+    background-color: rgb(177, 177, 177);
+}
+.indicators.active{
+    background-color: rgb(5, 5, 5);
+}
+.indicator{
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+#prv,#next{
+    background-color: black;
+    color:#ffff;
+    /* margin-top: 400px; */
+}
+#next{
+    margin-left: 862px;
+}
+
+</style>
+
+</head>
+<body>
+
+    <center>
+       <div class="div"> 
+        <div class="divs active"> 
+            <h1>
+               Gangs of wasseypur
+            </h1>
+            <p class="review-body"><i class="fas fa-quote-left" aria-hidden="true"></i>
+                We appreciate the way in which the restoration of our drive thru sign was completed. Like the way YESCO took care of everything from removal to rewiring.
+                <i class="fas fa-quote-right" aria-hidden="true"></i></p>
+            <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></p>        
+            
+        </div>
+        <div class="divs">
+            <h1>
+                faizal khan
+            </h1>
+            <p class="review-body"><i class="fas fa-quote-left" aria-hidden="true"></i>
+                We appreciate the way in which the restoration of our drive thru sign was completed. Like the way YESCO took care of everything from removal to rewiring.
+                <i class="fas fa-quote-right" aria-hidden="true"></i></p>
+            <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></p>        
+            
+        </div>
+        <div class="divs">
+            <h1>
+                Radhe
+            </h1>
+            <p class="review-body"><i class="fas fa-quote-left" aria-hidden="true"></i>
+                We appreciwas completed. Like the way YESCO took care of everything from removal to rewiring.
+                <i class="fas fa-quote-right" aria-hidden="true"></i></p>
+            <p><i class="fa fa-star"></i><i class="fa fa-star"></i></p>        
+            
+        </div>
+        <div class="divs">
+            <h1>
+               phir hera pheri
+            </h1>
+            <p class="review-body"><i class="fas fa-quote-left" aria-hidden="true"></i>
+                We appreciate the way in which the restoration of our drive thru sign was completed.
+                <i class="fas fa-quote-right" aria-hidden="true"></i></p>
+            <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>        
+            
+        </div>
+        <button id="prv" >pre</button>
+        <button id="next" >next</button>
+      
+        <div class="indicator">
+            <div class="indicators active" onclick="carousel(0)" ></div>
+            <div class="indicators"  onclick="carousel(1)"></div>
+            <div class="indicators"  onclick="carousel(2)"></div>
+            <div class="indicators"  onclick="carousel(3)"></div>
+        </div>
+     </div> 
+       
+    </center> 
+
+    
+<script>
+
+
+var indi=document.getElementsByClassName('indicators');
+var dots=indi.length;
+  var a=document.getElementsByClassName('divs');
+  var total=a.length;
+ console.log(a)
+ console.log(total)
+ console.log(indi)
+ console.log(dots)
+ var b=0;
+
+ document.getElementById('next').addEventListener('click',function (){
+    b+=1;
+    carousel(b)}
+  );
+
+
+
+ 
+
+     document.getElementById('prv').addEventListener('click',function(){
+        b-=1;
+        carousel(b)}
+     
+     );
+     function carousel(n){
+        
+         if(n>total-1){
+             b=0;
+         }
+         if(n<0){
+             b=total-1;
+         }
+         if(n<total && n>=0){
+             b=n;
+         }
+         for(var i=0;i<total;i++){
+             a[i].classList.remove('active')
+             indi[i].classList.remove('active')
+         }
+         a[b].classList.add('active')
+         indi[b].classList.add('active')
+    }
+
+
+
+
+   
+    </script>
+</body>
+</html>
